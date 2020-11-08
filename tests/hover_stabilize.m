@@ -16,11 +16,13 @@ thetadot = deg2rad([0; 0; 0]);
 init_state = struct('x', x, 'xdot', xdot, 'theta', theta, 'thetadot', thetadot);
 
 % setup final states
+desired_x = 0;
+dsired_y = 0;
 desired_z = 10;
 desired_zdot = 0; % must be a function of time
 desired_theta = deg2rad([0; 0; 0]);
 desired_thetadot = deg2rad([0; 0; 0]); % must be a function of time
-desired_state = struct('z', desired_z, 'zdot', desired_zdot, 'theta', desired_theta, 'thetadot', desired_thetadot);
+desired_state = struct('x', desired_x,'y', desired_y,'z', desired_z, 'zdot', desired_zdot, 'theta', desired_theta, 'thetadot', desired_thetadot);
 
 % Run simulation
 act = simulate(controllers, desired_state, init_state, 0, 5, 0.01);
